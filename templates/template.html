@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, {{ user.username }}!</h1>
+        <p class="lead">Welcome to CarSupplyChain app!</p>
+        <hr class="my-4">
+        {% if user.manufactureradmin %}
+            <p>
+                You are from "{{ request.user.manufactureradmin.manufacturer.name }}"
+                with balance {{ request.user.manufactureradmin.manufacturer.balance }}$
+            </p>
+        {% elif user.dealershipadmin %}
+            <p>
+                You are from "{{ request.user.dealershipadmin.dealership.name }}"
+                with balance {{ request.user.dealershipadmin.dealership.balance }}$
+            </p>
+        {% elif user.customer %}
+            <p>
+
+                Your balance {{ request.user.customer.balance }}$
+            </p>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for car in retailcar_list %}
+        <div class="card" style="width: 18rem; float: left; margin: 2%">
+              <div class="card-body">
+                  <h5 class="card-title">{{ car.name }}</h5>
+                  <p class="card-text">{{ car.price }}$</p>
+                  <p class="card-text">Available: {{ car.quantity }}</p>
+                  {% if user.dealershipadmin %}
+                    <a href="{% url 'dealership:retail_car_update' pk=car.pk %}" class="card-link">Edit</a>
+                    <a href="{% url 'dealership:retail_car_delete' pk=car.pk %}" class="card-link">Delete</a>
+                  {% endif %}
+              </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <h4>Are you sure you want to delete blueprint of {{ object.name }}?</h4>
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a class="btn btn-primary" href="{% url 'manufacturing:wholesale_cars_list'%}">Cancel</a>
+    </form>
+{% endblock %}
