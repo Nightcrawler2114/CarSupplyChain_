@@ -68,7 +68,7 @@ class WholesaleCarsListView(ListView):
 class WholesaleCarEditView(UpdateView):
     model = WholesaleCar
     success_url = '/wholesale_cars/'
-    fields = ['name', 'price']
+    fields = ['name',]
 
 
 @method_decorator(login_required, name='dispatch')

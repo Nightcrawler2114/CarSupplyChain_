@@ -8,7 +8,7 @@ from customer.models import RetailDeal, Customer
 @method_decorator(login_required, name='dispatch')
 class InitiateWholesaleDeal(CreateView):
     model = WholesaleDeal
-    fields = ['manufacturer', 'car_name', 'car_amount', 'total_price']
+    fields = ['manufacturer', 'car_name', 'total_price']
     success_url = '/'
 
     def form_valid(self, form):

@@ -32,7 +32,7 @@ class WholesaleDeal(models.Model):
         ('W', 'Waiting')
     )
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, null=True, blank=True)
-    car_name = models.ForeignKey(WholesaleCar, on_delete=models.CASCADE, null=True, blank=True)
+    car_name = models.ForeignKey(WholesaleCar, on_delete=models.SET_NULL, null=True, blank=True)
     car_amount = models.IntegerField(default=1)
     total_price = models.IntegerField()
     status = models.CharField(max_length=2, choices=DEAL_STATUS, default='W')
